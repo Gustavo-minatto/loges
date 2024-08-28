@@ -1,4 +1,5 @@
 const areaA = document.querySelector(".area-a");
+const areaB = document.querySelector(".area-b")
 const areaC = document.querySelector(".area-c");
 const areaD = document.querySelector(".area-d");
 const areaE = document.querySelector(".area-e");
@@ -16,9 +17,11 @@ const three = document.querySelector(".three");
 const four = document.querySelector(".four");
 const five = document.querySelector(".five");
 const six = document.querySelector(".six");
+const areaPrincipal = document.querySelector(".area-principal");
 
 export{
   areaA,
+  areaB,
   areaC,
   areaD,
   areaE,
@@ -35,5 +38,6 @@ export{
   three,
   four,
   five,
-  six
+  six,
+  areaPrincipal
 }

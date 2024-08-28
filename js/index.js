@@ -10,7 +10,7 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-
+//scrool
 document.getElementById('scroll-icon').addEventListener('click', function () {
   const target = document.getElementById('target-section');
 
@@ -24,6 +24,7 @@ document.getElementById('scroll-icon').addEventListener('click', function () {
   }, 500);
 });
 
+//zapzap
 document.addEventListener('scroll', function () {
   const elementos = document.querySelectorAll('.reveal');
 
@@ -39,6 +40,7 @@ document.addEventListener('scroll', function () {
   });
 });
 
+//tela inicial
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
     document.querySelector('.mensagem-inicial').style.display = 'none';
