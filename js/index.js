@@ -43,7 +43,44 @@ document.addEventListener('scroll', function () {
 //tela inicial
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
-    document.querySelector('.mensagem-inicial').style.display = 'none';
-    document.querySelector('.inicial').style.display = 'flex';
-  }, 2000);
+    const mensagem = document.querySelector('.mensagem-inicial');
+    mensagem.classList.add('fade-out');
+
+    setTimeout(function () {
+      mensagem.style.display = 'none';
+      document.querySelector('.inicial').style.display = 'flex';
+    }, 1000); 
+  }, 5000);
 });
+
+
+(function () {
+  emailjs.init("YOUR_USER_ID");
+
+  document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const userName = this.user_name.value.trim();
+    const userEmail = this.user_email.value.trim();
+    const category = this.category.value;
+    const message = this.message.value.trim();
+
+    if (!userName || !userEmail || !category || !message) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userEmail)) {
+      alert('Por favor, insira um e-mail válido.');
+      return;
+    }
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function () {
+        alert('E-mail enviado com sucesso!');
+        document.getElementById('contact-form').reset();
+      }, function (error) {
+        alert('Ocorreu um erro ao enviar o e-mail: ' + JSON.stringify(error));
+      });
+  });
+})();

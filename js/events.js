@@ -34,11 +34,11 @@ export default function () {
   let rotation = 0;
 
   function flip() {
-    rotation += 180; 
+    rotation += 180;
     areaB.style.transition = "transform 1s ease";
-    areaPrincipal.style.transition = "transform 1s ease"; 
-    areaB.style.transform = `rotateY(${rotation}deg)`; 
-    areaPrincipal.style.transform = `rotateY(${rotation}deg)`; 
+    areaPrincipal.style.transition = "transform 1s ease";
+    areaB.style.transform = `rotateY(${rotation}deg)`;
+    areaPrincipal.style.transform = `rotateY(${rotation}deg)`;
   }
 
   areaA.addEventListener('click', function () {
@@ -58,7 +58,7 @@ export default function () {
   });
 
   areaD.addEventListener('click', function () {
-    changeBackground(one, two, three, five, six)
+    changeBackground(one, two, four, five, six)
     changeBackground(fotoOne, fotoTwo, fotoFour, fotoFive, fotoSix)
     three.classList.remove('hide')
     fotoThree.classList.remove('hide')
