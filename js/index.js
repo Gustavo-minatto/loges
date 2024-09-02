@@ -54,34 +54,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-(function () {
-  emailjs.init("TSBV_OzWz5cHDULSn");
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-  document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault();
+  const userName = this.user_name?.value.trim();
+  const userEmail = this.user_email?.value.trim();
+  const category = this.category.value;
+  const message = this.message.value.trim();
 
-    const userName = this.user_name?.value.trim();
-    const userEmail = this.user_email?.value.trim();
-    const category = this.category.value;
-    const message = this.message.value.trim();
+  if (!userName || !userEmail || !category || !message) {
+    alert('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
 
-    if (!userName || !userEmail || !category || !message) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
-      return;
-    }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(userEmail)) {
+    alert('Por favor, insira um e-mail válido.');
+    return;
+  }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(userEmail)) {
-      alert('Por favor, insira um e-mail válido.');
-      return;
-    }
-
-    emailjs.sendForm('service_8mqwuis', 'YOUR_TEMPLATE_ID', this)
-      .then(function () {
-        alert('E-mail enviado com sucesso!');
-        document.getElementById('contact-form').reset();
-      }, function (error) {
-        alert('Ocorreu um erro ao enviar o e-mail: ' + JSON.stringify(error));
-      });
-  });
-})();
+  emailjs.sendForm('service_8mqwuis', 'template_l6yv1yt', this)
+    .then(function () {
+      alert('E-mail enviado com sucesso!');
+      document.getElementById('contact-form').reset();
+    }, function (error) {
+      alert('Ocorreu um erro ao enviar o e-mail: ' + JSON.stringify(error));
+    });
+});
