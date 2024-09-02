@@ -55,10 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 (function () {
-  emailjs.init("YOUR_USER_ID");
+    emailjs.init("TSBV_OzWz5cHDULSn"); 
 
   document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
+    
     const userName = this.user_name.value.trim();
     const userEmail = this.user_email.value.trim();
     const category = this.category.value;
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('service_8mqwuis', 'YOUR_TEMPLATE_ID', this)
       .then(function () {
         alert('E-mail enviado com sucesso!');
         document.getElementById('contact-form').reset();
