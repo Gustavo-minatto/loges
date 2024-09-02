@@ -49,19 +49,19 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
       mensagem.style.display = 'none';
       document.querySelector('.inicial').style.display = 'flex';
-    }, 1000); 
+    }, 1000);
   }, 5000);
 });
 
 
 (function () {
-    emailjs.init("TSBV_OzWz5cHDULSn"); 
+  emailjs.init("TSBV_OzWz5cHDULSn");
 
   document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    
-    const userName = this.user_name.value.trim();
-    const userEmail = this.user_email.value.trim();
+
+    const userName = this.user_name?.value.trim();
+    const userEmail = this.user_email?.value.trim();
     const category = this.category.value;
     const message = this.message.value.trim();
 

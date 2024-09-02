@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="styles.css">
   <script src="./js/index.js" type="module" defer></script>
 
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.6.2/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
@@ -312,8 +311,8 @@
         <span class="subtitulo"><em>Entre em contato</em></span>
       </div>
       <form id="contact-form">
-        <input type="text" placeholder="NOME / CORPORAÇÃO" required>
-        <input type="email" placeholder="E-MAIL PESSOAL OU CORPORATIVO" required>
+        <input type="text" name="user_name" placeholder="NOME / CORPORAÇÃO" required>
+        <input type="email" name="user_email" placeholder="E-MAIL PESSOAL OU CORPORATIVO" required>
         <select name="category" required>
           <option value="CONSULTORIA EM TECNOLOGIA">CONSULTORIA EM TECNOLOGIA</option>
           <option value="MANUTENÇÃO E REPARO DE SOFTWARES">MANUTENÇÃO E REPARO DE SOFTWARES</option>
@@ -342,6 +341,13 @@
     </footer>
 
   </div>
+
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("TSBV_OzWz5cHDULSn");
+    })();
+  </script>
 
 </body>
 <div>
